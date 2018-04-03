@@ -25,6 +25,7 @@ export default class Landing extends React.Component {
                 }
                 firebase.database().ref('userInformation/').child(uid).set(userInfo)
                 console.log('this user is', uid)
+                this.props.navigation.navigate('FinishProfile', { uid })
             })
             .catch(res => {
                 console.log('error ', res)
@@ -37,6 +38,7 @@ export default class Landing extends React.Component {
         .then(res => {
             console.log(res)
             let uid = res.uid
+            this.props.navigation.navigate('FinishProfile', { uid })
         })
         .catch(res => {
         console.log('error ', res.code)
