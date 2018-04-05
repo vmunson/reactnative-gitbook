@@ -42,7 +42,8 @@ export default class FinishProfile extends React.Component {
             imageUrl = imageUrl.replace(/"/g, '')
             firebase.database().ref('userInformation').child(this.uid).child('profImage').set(imageUrl)
                 .then(() => {
-                    this.props.navigation.navigate('Home', { uid })
+                    alert('Uploaded')
+                    this.props.navigation.navigate('Home')
                 })
             console.log({ uploadResponse });
             console.log({ uploadResult });
@@ -56,7 +57,7 @@ export default class FinishProfile extends React.Component {
     }
 
     uploadPhoto = async (uri) => {
-        let apiUrl = 'https://file-upload-example-backend-itkdtqogvl.now.sh/';
+        let apiUrl = 'https://file-upload-example-backend-itkdtqogvl.now.sh/upload';
 
         let uriParts = uri.split('.');
         let fileType = uriParts[uriParts.length - 1];

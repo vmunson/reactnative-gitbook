@@ -1,6 +1,7 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation'
 
+import LoadingScreen from './src/screens/loadingPage'
 import FinishProfile from './src/screens/finishProfile'
 import Home from './src/screens/home'
 import Landing from './src/screens/landing'
@@ -11,9 +12,10 @@ import firebaseConfig from './src/firebaseConfig';
 firebase.initializeApp(firebaseConfig)
 const App = StackNavigator(
   {
-    Landing: { screen: Landing },
+    Loading: {screen: LoadingScreen},
+    Login: { screen: Landing },
     Home: { screen: Home },
-    FinishProfile: { screen: FinishProfile}
+    FinishProfile: { screen: FinishProfile},
   },{
   navigationOptions: {
     header: <Title />}
